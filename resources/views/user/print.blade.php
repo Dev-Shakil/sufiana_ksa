@@ -94,7 +94,7 @@
             <div class="">
               <div class="h-[180px] w-[170px] border-1 border border-black " ></div>
             </div>
-            <div class="flex flex-col justify-center items-center ml-[90px]">
+            <div class="flex flex-col justify-center items-center ml-[110px]">
                 <svg id="barcode1" class="w-[300px] mb-2">
                     <!-- SVG content -->
                 </svg>
