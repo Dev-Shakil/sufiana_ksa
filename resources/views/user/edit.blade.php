@@ -275,18 +275,15 @@
                             <div class="font-bold text-lg">Visa Date (Hijri)</div>
                             <input type="text" name="visa_date" id="visa_date" value="{{$candidate->visa_date2}}" class="p-2 rounded-lg w-full uppercase form-control" >
                           </div>
-                          <div class="py-1">
-                            <div class="font-bold text-lg">Salary</div>
-                            <input type="text" class="p-2 rounded-lg w-full uppercase form-control" id="salary" name="salary" value="{{$candidate->salary}}">
-                          </div>
+                          
                           <div class="py-1">
                             <div class="font-bold text-lg">Sponsor Name (Arabic)</div>
                             <input type="text" class="p-2 rounded-lg w-full uppercase form-control" id="spon_name_arabic" name="spon_name_arabic" value="{{$candidate->spon_name_arabic}}">
                           </div>
-                          {{-- <div class="py-1">
+                          <div class="py-1">
                             <div class="font-bold text-lg">Sponsor Name (English)</div>
-                            <input type="text" class="p-2 rounded-lg w-full uppercase form-control" id="spon_name_english" name="spon_name_english" value="{{$candidate->spon_name_english}}" placeholder="Sponsor Name in (English)" />
-                          </div> --}}
+                            <input type="text" class="p-2 rounded-lg w-full uppercase form-control" id="spon_name_english" name="spon_name_english" value="{{$candidate->spon_name_english}}" />
+                          </div>
                           <div class="py-1">
                             <div class="font-bold text-lg">Profession (Arabic)</div>
                             <input type="text" name="prof_name_arabic" id="prof_name_arabic" value="{{$candidate->prof_name_arabic}}" class="p-2 rounded-lg w-full uppercase form-control" >
@@ -296,13 +293,17 @@
                             <input type="text" name="prof_name_english" id="prof_name_english" value="{{$candidate->prof_name_english}}" class="p-2 rounded-lg w-full uppercase form-control" >
                           </div>
                           <div class="py-1">
+                            <div class="font-bold text-lg">Salary</div>
+                            <input type="text" class="p-2 rounded-lg w-full uppercase form-control" id="salary" name="salary" value="{{$candidate->salary}}">
+                          </div>
+                          <div class="py-1">
                             <div class="font-bold text-lg">Application (Mofa) No</div>
                             <input type="text" class="p-2 rounded-lg w-full uppercase form-control" id="mofa_no" name="mofa_no" value="{{$candidate->mofa_no}}">
                           </div>
-                          <div class="py-1">
+                          {{-- <div class="py-1">
                             <div class="font-bold text-lg">Application (Mofa) Date</div>
                             <input type="text" name="mofa_date" value="{{$candidate->mofa_date}}" id="mofa_date" class="p-2 rounded-lg w-full uppercase form-control">
-                          </div>
+                          </div> --}}
                           <div class="py-1">
                             <div class="font-bold text-lg">Okala No</div>
                             <input type="text" class="p-2 rounded-lg w-full uppercase form-control" id="okala_no" name="okala_no" value="{{$candidate->okala_no}}">
