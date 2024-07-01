@@ -94,7 +94,7 @@
             <div class="">
               <div class="h-[180px] w-[170px] border-1 border border-black " ></div>
             </div>
-            <div class="flex flex-col justify-center items-center ml-[20px]">
+            <div class="flex flex-col justify-center items-center ml-[30px]">
                 <svg id="barcode1" class="w-[300px] mb-2">
                     <!-- SVG content -->
                 </svg>
@@ -943,7 +943,7 @@
               </h2>
               :
               <span class="font-bold pl-2">
-                {{$candidates[0]->spon_name_arabic}}
+                {{$candidates[0]->spon_name_english}}
               </span>
             </li>
             <li class=" flex p-1 bordered ">
@@ -976,7 +976,7 @@
             <li class=" flex p-1 bordered ">
               <h2 class="w-[30rem]">5. PROFESSION </h2>:
               <span class="font-bold pl-2">
-                {{$candidates[0]->prof_name_arabic}}
+                {{$candidates[0]->prof_name_english}}
               </span>
             </li>
             <li class=" flex p-1 bordered ">
