@@ -768,12 +768,12 @@
             <div class="flex text-end text-[16px] border-black basis-3/12">
               Date : <span class="arb">التاريخ</span>
             </div>
-            <div  class="flex text-[16px] text-end border-black basis-4/12">
+            <div  class="flex text-[16px] text-end border-black basis-3/12">
               Signature :<span class="arb"> التوقيع </span>
             </div>
             <div
               
-              class="flex text-[16px] text-end border-black w-full justify-start basis-5/12"
+              class="flex text-[16px] text-end border-black w-full justify-start basis-6/12"
             >
               Name:
               <span class="mx-auto font-bold text-xl">
