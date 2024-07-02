@@ -30,7 +30,7 @@ class UserController extends Controller
             $agentsform = DB::table('agents')
                 ->select('*')
                 ->where('user', '=', Session::get('user'))
-                ->where('is_delete', '=', 0);
+                ->where('is_delete', '=', 0)->get();
             
         // Add search functionality
         if ($request->has('search')) {
