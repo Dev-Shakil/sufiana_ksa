@@ -90,11 +90,11 @@
   </div>
     <!-- ksa 1st page design starts -->
     <div class=" border-black  h-[100%]  w-[1070px]  mx-auto  ">
-        <div class="flex justify-between  mb-[4px]">
+        <div class="flex justify-between">
             <div class="">
               <div class="h-[180px] w-[170px] border-1 border border-black " ></div>
             </div>
-            <div class="flex flex-col justify-center items-center ml-[110px]">
+            <div class="flex flex-col justify-start items-center ml-[110px]">
                 <svg id="barcode1" class="w-[300px] mb-2">
                     <!-- SVG content -->
                 </svg>
@@ -379,10 +379,10 @@
            
           </div>
           <div class="border-b border-black flex">
-            <div class="border-r border-black basis-2/12">
+            <div class="border-r border-black basis-3/12">
               <p class="text-base w-full"> Home Address and telephone:</p>
             </div>
-            <div  class="border-r border-black basis-8/12 flex items-center justify-center">
+            <div  class="border-r border-black basis-7/12 flex items-center justify-center">
               <p class="text-base text-center uppercase">
                 {{$candidates[0]->address}}
               </p>
