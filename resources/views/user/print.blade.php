@@ -380,10 +380,10 @@
           </div>
           <div class="border-b border-black flex">
             <div class="border-r border-black basis-3/12">
-              <p class="text-lg w-full"> Home Address and telephone No:</p>
+              <p class="text-lg w-full"> Home Address and telephone:</p>
             </div>
             <div  class="border-r border-black basis-7/12 flex items-center justify-center">
-              <p class="text-lg text-center   uppercase">
+              <p class="text-lg text-center uppercase">
                 {{$candidates[0]->address}}
               </p>
             </div>
