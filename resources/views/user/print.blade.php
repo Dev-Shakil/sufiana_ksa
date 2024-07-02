@@ -745,7 +745,7 @@
             </div>
           </div>
           <div class="border-b border-black flex justify-between">
-            <div class="text-xl border-black basis-7/12">
+            <div class="text-xl border-black basis-12/12">
               <b>{{$candidates[0]->spon_name_english}}</b>
             </div>
           </div>
