@@ -90,7 +90,7 @@
   </div>
     <!-- ksa 1st page design starts -->
     <div class=" border-black  h-[100%]  w-[1070px]  mx-auto  ">
-        <div class="flex justify-between">
+        <div class="flex justify-between h-[190px]">
             <div class="">
               <div class="h-[180px] w-[170px] border-1 border border-black " ></div>
             </div>
@@ -98,7 +98,7 @@
                 <svg id="barcode1" class="w-[300px] mb-2">
                     <!-- SVG content -->
                 </svg>
-                <img src="{{ asset('assets/images/ksatree.png') }}" alt="Tree" class="w-[40%] h-[40%]">
+                <img src="{{ asset('assets/images/ksatree.png') }}" alt="Tree" class="w-[40%] h-[35%]">
             </div>
           
             <div  class="w-[300px] text-end text-xl">
