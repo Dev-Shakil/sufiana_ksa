@@ -379,10 +379,10 @@
            
           </div>
           <div class="border-b border-black flex">
-            <div class="border-r border-black basis-3/12">
+            <div class="border-r border-black basis-2/12">
               <p class="text-base w-full"> Home Address and telephone:</p>
             </div>
-            <div  class="border-r border-black basis-7/12 flex items-center justify-center">
+            <div  class="border-r border-black basis-8/12 flex items-center justify-center">
               <p class="text-base text-center uppercase">
                 {{$candidates[0]->address}}
               </p>
