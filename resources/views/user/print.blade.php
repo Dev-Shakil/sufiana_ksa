@@ -89,7 +89,7 @@
     </button>
   </div>
     <!-- ksa 1st page design starts -->
-    <div class=" border-black  h-[100%]  w-[1070px]  mx-auto  ">
+    <div class=" border-black  h-[100%]  w-[1050px]  mx-auto  ">
         <div class="flex justify-between  mb-[4px]">
             <div class="">
               <div class="h-[180px] w-[170px] border-1 border border-black " ></div>
@@ -379,10 +379,10 @@
            
           </div>
           <div class="border-b border-black flex">
-            <div class="border-r border-black basis-4/12">
+            <div class="border-r border-black basis-3/12">
               <p class="text-lg w-full"> Home Address and telephone No:</p>
             </div>
-            <div  class="border-r border-black basis-6/12 flex items-center justify-center">
+            <div  class="border-r border-black basis-7/12 flex items-center justify-center">
               <p class="text-lg text-center   uppercase">
                 {{$candidates[0]->address}}
               </p>
