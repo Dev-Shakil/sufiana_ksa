@@ -89,7 +89,7 @@
     </button>
   </div>
     <!-- ksa 1st page design starts -->
-    <div class=" border-black  h-[100%]  w-[1050px]  mx-auto  ">
+    <div class=" border-black  h-[100%]  w-[1070px]  mx-auto  ">
         <div class="flex justify-between  mb-[4px]">
             <div class="">
               <div class="h-[180px] w-[170px] border-1 border border-black " ></div>
