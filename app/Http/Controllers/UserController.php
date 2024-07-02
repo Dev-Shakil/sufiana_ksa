@@ -27,6 +27,10 @@ class UserController extends Controller
                 ->where('user', '=', Session::get('user'))
                 ->where('is_delete', '=', 0)
                 ->paginate(10);
+            $agentsform = DB::table('agents')
+                ->select('*')
+                ->where('user', '=', Session::get('user'))
+                ->where('is_delete', '=', 0);
             
         // Add search functionality
         if ($request->has('search')) {
@@ -43,7 +47,7 @@ class UserController extends Controller
         $candidates = $query->paginate(10);
         $user = DB::table('user')->select('*')->where('email', '=', Session::get('user'))->first();
 
-        return view('user.index', compact('candidates', 'user', 'agents'));
+        return view('user.index', compact('candidates', 'user', 'agents','agentsform'));
         }
     
         else {
