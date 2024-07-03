@@ -938,7 +938,7 @@
           </p>
           <ol class=" ">
             <li class=" flex p-1 bordered ">
-              <h2 class="w-[30rem]">
+              <h2 class="w-[35rem]">
                 1. NAME OF THE EMPLOYMENT IN SAUDIA ARABIA
               </h2>
               :

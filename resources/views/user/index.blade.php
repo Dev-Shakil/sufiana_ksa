@@ -610,7 +610,13 @@
               {{ date('d-m-Y', strtotime($candidate->created_at)) }}<br/>
               {{ date('H:m', strtotime($candidate->created_at)) }}
             </td>
-            <td><a href="{{ route('user/view', ['id' => $candidate->id]) }}" class="font-semibold hover:font-bold cursor-pointer hover:text-blue-400 ">{{ $candidate->name }}</a></td>
+            <td><a href="{{ route('user/view', ['id' => $candidate->id]) }}" class="font-semibold hover:font-bold cursor-pointer hover:text-blue-400 ">{{ $candidate->name }}</a><p class="mt-1 ">Agent:
+              @foreach ($agentsform as $agent)
+                  @if ($agent->id == $candidate->agent)
+                      {{ $agent->agent_name }}
+                  @endif
+              @endforeach
+            </p></td>
             <td>{{ $candidate->passport_number }}</td>
             <td>
               {{ date('d-m-Y', strtotime($candidate->date_of_birth)) }}
