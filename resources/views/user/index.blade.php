@@ -209,14 +209,14 @@
 
     <div class="modal fade " id="agentModal" tabindex="-1" aria-labelledby="agentModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-xl">
-        <div class="modal-content">
+        <div class="modal-content ">
           <div class="modal-header bg-indigo-300">
             <h5 class="modal-title" id="agentModalLabel">Add New Agent</h5>
-            {{-- <button type="button" class="btn-close btn text-red-700 font-bold" data-bs-dismiss="modal" aria-label="Close">X</button> --}}
+            <button type="button" class="btn-close btn text-red-700 font-bold" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
          
-          <div class="modal-body">
+          <div class="modal-body ">
             <form class="row g-3" id="addagent" action="{{route('agent/index')}}" method="post" enctype="multipart/form-data">
               @csrf
               <div class="">
@@ -268,7 +268,7 @@
         <div class="modal-content">
           <div class="modal-header bg-[#289788] text-white">
             <h5 class="modal-title" id="exampleModalLabel">Add New Candidate</h5>
-            <button type="button" class="btn-close btn text-white font-bold" data-bs-dismiss="modal" aria-label="Close">X</button>
+            <button type="button" class="btn-close btn text-white font-bold" data-bs-dismiss="modal" aria-label="Close"></button>
           </div>
 
          
@@ -278,19 +278,20 @@
                       
                     <div class="">
                       <div class="px-10 gap-x-10 grid md:grid-cols-2">
+                        <div class="py-1">
+                          <div class="font-semibold text-lg">Agent <span class="text-red-500">*</span></div>
+                          <select class="form-control select2" id="agent_id" name="agent_id" required>
+                            <option value="" disabled selected>Select Agent</option>
+                            @foreach ($agentsform as $agent) 
+                              <option value="{{ $agent->id }}">{{ $agent->agent_name }}</option>   
+                            @endforeach
+                            <!-- Add more options as needed -->
+                        </select>                    </div>
                       <div class="py-1">
                       <div class="font-semibold text-lg" >Candidate Name <span class="text-red-500">*</span> </div>
                       <input type="text" class="form-control uppercase" id="pname" name="pname" placeholder="" required>
                     </div>
-                    <div class="py-1">
-                      <div class="font-semibold text-lg">Agent <span class="text-red-500">*</span></div>
-                      <select class="form-control select2" id="agent_id" name="agent_id" required>
-                        <option value="" disabled selected>Select Agent</option>
-                        @foreach ($agentsform as $agent) 
-                          <option value="{{ $agent->id }}">{{ $agent->agent_name }}</option>   
-                        @endforeach
-                        <!-- Add more options as needed -->
-                    </select>                    </div>
+                    
                     <div class="py-1">
                       <div class="font-semibold text-lg">Passport Number <span class="text-red-500">*</span></div>
                       <input type="text" class="form-control uppercase " id="pnumber" name="pnumber" minlength="0" maxlength="9" required placeholder="">
@@ -504,18 +505,20 @@
   
   <!-- End Hero -->
   <div class="container my-5 hello">
-    <div class="flex justify-between">
-      <button type="button" data-toggle="tooltip" data-placement="bottom" title="Add Canddidates Passport" class="bg-indigo-500 text-white font-semibold text-xl px-14 py-2 rounded-md mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
-        Add candidate
-      </button>
+    <div class="flex justify-end gap-3">
+     
       <button type="button" data-toggle="tooltip" data-placement="bottom" title="Add Agent" class="bg-green-500 text-white font-semibold text-xl px-14 py-2 rounded-md mb-2" data-bs-toggle="modal" data-bs-target="#agentModal">
         Add Agent
       </button>
-      <a href="{{ route('agent_candidate') }}" data-toggle="tooltip" data-placement="bottom" title="Report">
+
+      <button type="button" data-toggle="tooltip" data-placement="bottom" title="Add Canddidates Passport" class="bg-indigo-500 text-white font-semibold text-xl px-14 py-2 rounded-md mb-2" data-bs-toggle="modal" data-bs-target="#exampleModal">
+        Add candidate
+      </button>
+      {{-- <a href="{{ route('agent_candidate') }}" data-toggle="tooltip" data-placement="bottom" title="Report">
         <button type="button" class="bg-yellow-500 text-white font-semibold text-xl px-14 py-2 rounded-md mb-2">
             Report
         </button>
-      </a>
+      </a> --}}
     
     </div>
 
@@ -561,7 +564,7 @@
               <div class="modal-content">
                 <div class="modal-header">
                   <h5 class="modal-title" id="addVisaModalLabel">Add Candidate Visa</h5>
-                  <button type="button" class="btn-close btn text-red-700 font-bold" data-bs-dismiss="modal" aria-label="Close">X</button>
+                  <button type="button" class="btn-close btn text-red-700 font-bold" data-bs-dismiss="modal" aria-label="Close"></button>
                 </div>
                 <div class="modal-body">
                   <form id="visainput" method="post" action class="mt-5">
@@ -670,7 +673,7 @@
     </div>
     
 
-    <div class="table-responsive main-datatable mt-5">
+    {{-- <div class="table-responsive main-datatable mt-5">
         <form method="GET" action="{{ route('user/index') }}">
             <div class="flex w-[50%] mx-auto gap-4">
                 <input type="text" class="form-control" name="search" placeholder="Search" value="{{ request('search') }}">
@@ -681,7 +684,7 @@
         <thead class="bg-green-500 thed">
           <tr class="bg-green-500">
             <th scope="col">Serial <br/> Number</th>
-            {{-- <th scope="col">Creation <br/> Date</th> --}}
+            
             <th scope="col">Name</th>
             <th scope="col">Phone <br/> Number</th>
             <th scope="col">Email <br/></th>
@@ -714,7 +717,7 @@
         </tbody>
       </table>
       {{ $agents->links() }}
-    </div>
+    </div> --}}
     
   </div>
 

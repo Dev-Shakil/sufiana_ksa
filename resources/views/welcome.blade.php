@@ -67,12 +67,12 @@
 
             <a class="text-[#00959F] hover:text-gray-100 dark:text-gray-400 hover:no-underline hover:bg-[#00959F] dark:hover:text-white border-2 border-[#00959F] duration-300 font-semibold py-2 rounded-md px-4" href="./assets/images/final.pdf"
                 target="_blank">Help</a>
-            <button
+            {{-- <button
                 class="py-2 rounded-md font-medium px-3 hover:text-[#00959F] text-gray-50 bg-[#00959F] border-2 hover:bg-white hover:border-2 border-[#00959F] duration-300"
                 data-bs-toggle="modal" data-bs-target="#exampleModal"
                 >
                 Register
-            </button>
+            </button> --}}
 
             <!-- Modal -->
             <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
@@ -420,7 +420,7 @@
               <div class="flex justify-between pt-4">
                   <a href="{{ route('forget-password') }}" class=" hover:text-blue-600 text-md">Forgot password?</a>
               </div>
-              <div class="pt-2 flex justify-between ">
+              {{-- <div class="pt-2 flex justify-between ">
                   <span class="">Dont have any account?</span>
   
                   <button class="focus:border-none text-base bg-white rounded-lg px-2 p-1 font-semibold"
@@ -428,7 +428,7 @@
                       signup
                   </button>
   
-              </div>
+              </div> --}}
           </div>
           </div>
         </div>
