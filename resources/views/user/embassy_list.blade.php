@@ -230,9 +230,10 @@
                         var td6 = document.createElement('td');
                         var td7 = document.createElement('td');
                         td1.setAttribute('contentEditable', 'true');
-                        var rowsCount = tbody.querySelectorAll('tr').length;
-                        var sl = rowsCount + 1;
+                        // var rowsCount = tbody.querySelectorAll('tr').length;
+                        // var sl = rowsCount + 1;
                         td1.innerHTML = sl;
+                        sl++;
                         td2.innerHTML = data[0].prof_name_arabic;
                         td3.innerHTML = data[0].visa_date2.substr(0, 4);
 
@@ -259,7 +260,7 @@
                         // Handle any errors that occurred during the request
                         // ...
                     });
-                document.getElementById('totalCancel').innerHTML = rowsCount;
+                document.getElementById('totalCancel').innerHTML = sl;
             }
 
             function getCanceldata() {
@@ -278,24 +279,13 @@
                         var cancelShow = data[0].passport_number;
                         var tbody = document.getElementById('table_cancel_body');
                         var cancelTitle = document.getElementById('cancel_head');
-                        // if(cancelShow===null){
-                        //     console.log("true")
-                        //     cancelTitle.style.display = "none";
-                        // }else{
-                        //     console.log("false")
-                        //     cancelTitle.style.display = "block";
-                        // }
+                        
                         var tr = document.createElement('tr');
 
 
                         tr.classList.add('border', 'border-black', 'p-0', 'text-[13px]', 'text-center', 'relative',
                         'group');
-                        // tr2.classList.add('border', 'border-black', 'p-0', 'text-xl', 'text-center', 'relative', );
-
-
-
-                        // var tdc1 = document.createElement('td');
-                        // tdc1.innerHTML ="إلغاء" ;
+                        
 
                         var td1 = document.createElement('td');
                         var td2 = document.createElement('td');
@@ -303,7 +293,8 @@
                         var td4 = document.createElement('td');
                         var td5 = document.createElement('td');
                         var td6 = document.createElement('td');
-
+                        var td7 = document.createElement('td');
+                        
                         td1.innerHTML = sl;
                         td1.setAttribute('contentEditable', 'true');
                         sl++;
@@ -312,6 +303,7 @@
                         td4.innerHTML = data[0].visa_no;
                         td5.innerHTML = data[0].spon_name_arabic;
                         td6.innerHTML = data[0].passport_number;
+                        td7.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
 
 
                         tr.appendChild(td2);
@@ -320,6 +312,7 @@
                         tr.appendChild(td5);
                         tr.appendChild(td6);
                         tr.appendChild(td1);
+                        tr.appendChild(td7);
                         // tr2.appendChild(tdc1);
                         // tbody.appendChild(tr2);
                         tbody.appendChild(tr);

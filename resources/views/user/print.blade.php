@@ -942,7 +942,7 @@
                 1. NAME OF THE EMPLOYMENT IN SAUDIA ARABIA
               </h2>
               :
-              <span class="font-bold pl-2">
+              <span class="font-bold pl-2 w-[60%]">
                 {{$candidates[0]->spon_name_english}}
               </span>
             </li>
