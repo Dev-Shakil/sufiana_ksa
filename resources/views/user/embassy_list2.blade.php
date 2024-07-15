@@ -13,35 +13,6 @@
             }
         }
     </style>
-      <style>
-        /* Custom CSS for the tooltip */
-        .tooltip {
-          position: relative;
-          display: inline-block;
-        }
-        
-        .tooltip .tooltiptext {
-          visibility: hidden;
-          width: 120px;
-          background-color: black;
-          color: #fff;
-          text-align: center;
-          border-radius: 6px;
-          padding: 5px 0;
-          position: absolute;
-          z-index: 1;
-          bottom: 125%; /* Position the tooltip above the text */
-          left: 50%;
-          margin-left: -60px;
-          opacity: 0;
-          transition: opacity 0.3s;
-        }
-        
-        .tooltip:hover .tooltiptext {
-          visibility: visible;
-          opacity: 1;
-        }
-      </style>
 
     @include('layout.head')
 
@@ -149,9 +120,6 @@
                             <p>ت</p>
                             <p>SL</p>
                         </th>
-                        <th id="hide">
-                            <p>Options</p>
-                        </th>
 
                     </tr>
                 </thead>
@@ -160,7 +128,7 @@
                         class=" [&>th]:border [&>th]:border-black [&>th]:py-0 text-md font-semibold text-center [&>th]:font-bold">
 
 
-                        <th colspan="7" class="border border-black"> جديد / New</th>
+                        <th colspan="6" class="border border-black"> جديد / New</th>
 
                     </tr>
                 </thead>
@@ -175,7 +143,7 @@
                         class=" [&>th]:border [&>th]:border-black [&>th]:py-0 text-md font-semibold text-center [&>th]:font-bold">
 
 
-                        <th colspan="7" class="border border-black">إلغاء / Cancelation</th>
+                        <th colspan="6" class="border border-black">إلغاء / Cancelation</th>
 
                     </tr>
                 </thead>
@@ -184,16 +152,15 @@
 
 
                 </tbody>
-                <tbody>
+                <tfoot>
                     <tr class="[&>td]:border [&>td]:border-black [&>td]:p-0 text-lg text-center relative group">
 
                         <td colspan="5" contentEditable class="font-bold text-xl text-end px-5" id="totalCancel">
 
                         </td>
                         <td>المجموع</td>
-                        
                     </tr>
-                </tbody>
+                </tfoot>
             </table>
 
             <div
@@ -210,11 +177,6 @@
 
         @include('layout.script')
         <script type="text/javascript">
-
-            // $(document).ready( function () {
-            //     $('#embassy_list').DataTable();
-            // } );
-                        
             function toggleInputBox() {
                 const radioSelection = document.querySelector('input[name="emb_list"]:checked').value;
                 const inputNew = document.getElementById('candidate');
@@ -237,9 +199,9 @@
                 }
             }
 
+
             var sl = 1;
-            var rowsData = [];
-            var cancelRowsData = [];
+            var sl_cancel = 1
 
             function getdata() {
                 var id = document.getElementById('candidate').value;
@@ -251,16 +213,55 @@
                         },
                     })
                     .then(response => response.json())
+                    // Parse the response as JSON
                     .then(data => {
-                        addRowToTable(data[0]);
+                        var tbody = document.getElementById('table_body');
+                        var tr = document.createElement('tr');
+
+
+                        tr.classList.add('border', 'border-black', 'p-0', 'text-[13px]', 'text-center', 'relative',
+                        'group');
+
+                        var td1 = document.createElement('td');
+                        var td2 = document.createElement('td');
+                        var td3 = document.createElement('td');
+                        var td4 = document.createElement('td');
+                        var td5 = document.createElement('td');
+                        var td6 = document.createElement('td');
+                        var td7 = document.createElement('td');
+                        td1.setAttribute('contentEditable', 'true');
+                        // var rowsCount = tbody.querySelectorAll('tr').length;
+                        // var sl = rowsCount + 1;
+                        td1.innerHTML = sl;
+                        sl++;
+                        td2.innerHTML = data[0].prof_name_arabic;
+                        td3.innerHTML = data[0].visa_date2.substr(0, 4);
+
+                        td3.setAttribute('contentEditable', 'true');
+
+                        td4.innerHTML = data[0].visa_no;
+                        td5.innerHTML = data[0].spon_name_arabic;
+                        td6.innerHTML = data[0].passport_number;
+                        td7.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
+                        tr.appendChild(td2);
+                        tr.appendChild(td3);
+                        tr.appendChild(td4);
+                        tr.appendChild(td5);
+                        tr.appendChild(td6);
+                        tr.appendChild(td1);
+                        tr.appendChild(td7);
+
+                        tbody.appendChild(tr);
+                        // tbody.appendChild(tr2);
+                        // console.log(data);
                         document.getElementById('candidate').value = null;
-                        updateTotalCount();
                     })
                     .catch(error => {
-                        console.error(error);
+                        // Handle any errors that occurred during the request
+                        // ...
                     });
+                document.getElementById('totalCancel').innerHTML = sl;
             }
-
 
             function getCanceldata() {
                 var id = document.getElementById('cancelInput').value;
@@ -272,171 +273,73 @@
                         },
                     })
                     .then(response => response.json())
+                    // Parse the response as JSON
                     .then(data => {
-                        addRowToTable(data[0], true); // Pass true to highlight row
+                        // console.log(data[0].passport_number);
+                        var cancelShow = data[0].passport_number;
+                        var tbody = document.getElementById('table_cancel_body');
+                        var cancelTitle = document.getElementById('cancel_head');
+                        
+                        var tr = document.createElement('tr');
+
+
+                        tr.classList.add('border', 'border-black', 'p-0', 'text-[13px]', 'text-center', 'relative',
+                        'group');
+                        
+
+                        var td1 = document.createElement('td');
+                        var td2 = document.createElement('td');
+                        var td3 = document.createElement('td');
+                        var td4 = document.createElement('td');
+                        var td5 = document.createElement('td');
+                        var td6 = document.createElement('td');
+                        var td7 = document.createElement('td');
+                        
+                        td1.innerHTML = sl;
+                        td1.setAttribute('contentEditable', 'true');
+                        sl++;
+                        td2.innerHTML = data[0].prof_name_arabic;
+                        td3.innerHTML = data[0].visa_date2.substr(0, 4);
+                        td4.innerHTML = data[0].visa_no;
+                        td5.innerHTML = data[0].spon_name_arabic;
+                        td6.innerHTML = data[0].passport_number;
+                        td7.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
+
+
+                        tr.appendChild(td2);
+                        tr.appendChild(td3);
+                        tr.appendChild(td4);
+                        tr.appendChild(td5);
+                        tr.appendChild(td6);
+                        tr.appendChild(td1);
+                        tr.appendChild(td7);
+                        // tr2.appendChild(tdc1);
+                        // tbody.appendChild(tr2);
+                        tbody.appendChild(tr);
+
                         document.getElementById('cancelInput').value = null;
-                        updateTotalCount();
                     })
                     .catch(error => {
-                        console.error(error);
+                        // Handle any errors that occurred during the request
+                        // ...
                     });
+                document.getElementById('totalCancel').innerHTML = sl;
+                document.getElementById('totalCancel').setAttribute('contentEditable', 'true');
             }
-
-
-            function addRowToTable(data, highlight = false) {
-                var tbody = highlight ? document.getElementById('table_cancel_body') : document.getElementById('table_body');
-                var tr = document.createElement('tr');
-                tr.classList.add('border', 'border-black', 'p-0', 'text-[13px]', 'text-center', 'relative', 'group');
-
-                var td1 = document.createElement('td');
-                var td2 = document.createElement('td');
-                var td3 = document.createElement('td');
-                var td4 = document.createElement('td');
-                var td5 = document.createElement('td');
-                var td6 = document.createElement('td');
-                var td7 = document.createElement('td');
-
-                td1.innerHTML = sl;
-                td1.setAttribute('contentEditable', 'true');
-                sl++;
-
-                td2.innerHTML = data.prof_name_arabic;
-                td3.innerHTML = data.visa_date2.substr(0, 4);
-                td3.setAttribute('contentEditable', 'true');
-                td4.innerHTML = data.visa_no;
-                td5.innerHTML = data.spon_name_arabic;
-                td6.innerHTML = data.passport_number;
-                td7.innerHTML = `<button class="text-lg text-red-700 mr-2" onclick="deleteRow(this)"><i class="bi bi-trash"></i></button> <button class="text-lg text-green-600" onclick="overwriteRow(this)"><i class="bi bi-arrow-left-right"></i></button>`;
-                
-
-                tr.appendChild(td2);
-                tr.appendChild(td3);
-                tr.appendChild(td4);
-                tr.appendChild(td5);
-                tr.appendChild(td6);
-                tr.appendChild(td1);
-                tr.appendChild(td7);
-
-                if (highlight) {
-                    
-                    cancelRowsData.push(tr);
-                } else {
-                    rowsData.push(tr);
-                }
-
-                tbody.appendChild(tr);
-                updateTable();
-            }
-
-
-            // Function to handle overwrite button click
-            function overwriteRow(btn) {
-                var row = btn.parentNode.parentNode;
-                var index = Array.from(row.parentNode.children).indexOf(row);
-
-                // Prompt user to select candidate from the datalist
-                var selectedCandidate = prompt('Select a candidate from the list by entering candidate ID:');
-
-                // Validate input
-                if (!selectedCandidate) return; // Handle if user cancels
-
-                // Example: Simulate fetching new data based on selected candidate ID
-                fetch('/user/embassy/' + selectedCandidate, {
-                    method: 'GET',
-                    headers: {
-                        'Content-Type': 'application/json'
-                    },
-                })
-                .then(response => response.json())
-                .then(data => {
-                    console.log(data[0]);
-                    // Example: Replace row with new data
-                    row.children[0].innerHTML = data[0].prof_name_arabic;
-                    row.children[1].innerHTML = data[0].visa_date2.substr(0, 4);
-                    row.children[2].innerHTML = data[0].visa_no;
-                    row.children[3].innerHTML = data[0].spon_name_arabic;
-                    row.children[4].innerHTML = data[0].passport_number;
-
-                    // Update rowsData or cancelRowsData based on tbody ID
-                    if (row.parentNode.id === 'table_cancel_body') {
-                        cancelRowsData[index] = row;
-                    } else {
-                        rowsData[index] = row;
-                    }
-
-                    // Trigger getdata() or getCanceldata() with the updated passport number or name
-                    var passportNumber = data[0].passport_number; // Adjust this based on your data structure
-
-                    if (row.parentNode.id === 'table_cancel_body') {
-                        document.getElementById('cancelInput').value = passportNumber; // Adjust this if you use name instead
-                        getCanceldata();
-                    } else {
-                        document.getElementById('candidate').value = passportNumber; // Adjust this if you use name instead
-                        getdata();
-                    }
-
-                    updateTable();
-                })
-                .catch(error => {
-                    // Handle any errors that occurred during the request
-                    console.error('Error fetching candidate data:', error);
-                });
-            }
-
 
             function deleteRow(btn) {
-                var row = btn.parentNode.parentNode;
-                var index = Array.from(row.parentNode.children).indexOf(row);
-
-                if (row.parentNode.id === 'table_cancel_body') {
-                    cancelRowsData.splice(index, 1);
-                } else {
-                    rowsData.splice(index, 1);
-                }
-                row.parentNode.removeChild(row);
-                updateTableIndexes();
-                updateTotalCount();
-            }
-
-            function updateTableIndexes() {
-                rowsData.forEach((tr, index) => {
-                    tr.children[5].innerHTML = index + 1;
-                });
-
-                cancelRowsData.forEach((tr, index) => {
-                    tr.children[5].innerHTML = index + 1 + rowsData.length;
-                });
-            }
-
-            function updateTotalCount() {
-                var totalRows = rowsData.length + cancelRowsData.length;
-                document.getElementById('totalCancel').innerHTML = totalRows;
-            }
-
-            function updateTable() {
-                updateTableIndexes();
-                updateTotalCount();
-            }
-            var hide= document.getElementById('hide');
-            if(!rowsData){
-                hide.classList.add('hidden');
+                var row = btn.parentNode.parentNode; // Get the parent row
+                row.parentNode.removeChild(row); // Remove the row
             }
 
             function printtable() {
-                // Hide the delete buttons and overwrite button before printing
+                // Hide the delete buttons before printing
                 var deleteButtons = document.querySelectorAll('button[onclick="deleteRow(this)"]');
                 deleteButtons.forEach(function(button) {
                     var parentTd = button.parentNode; // Get the parent <td> element
                     parentTd.classList.add('no-print'); // Add the no-print class to the parent <td>
                 });
 
-                var overwriteButton = document.querySelectorAll('button[onclick="overwriteRow(this);"]');
-                overwriteButton.forEach(function(button) {
-                    var overwriteparent = button.parentNode; // Get the parent <td> element
-                    overwriteparent.classList.add('no-print'); // Add the no-print class to the parent <td>
-                });
-                var hide= document.getElementById('hide');
-                hide.classList.add('no-print');
                 // Print the specific table
                 var printContents = document.getElementById('printable').outerHTML;
                 var originalContents = document.body.innerHTML;
@@ -448,16 +351,9 @@
 
                 // Remove the no-print class from the buttons after printing
                 deleteButtons.forEach(function(button) {
-                    var parentTd = button.parentNode; // Get the parent <td> element
-                    parentTd.classList.remove('no-print'); // Remove the no-print class from the parent <td>
+                    button.classList.remove('no-print');
                 });
-
-                overwriteButton.forEach(function(button) {
-                    var overwriteparent = button.parentNode; // Get the parent <td> element
-                    overwriteparent.classList.remove('no-print'); // Add the no-print class to the parent <td>
-                });            }
-
-
+            }
             const today = new Date();
 
             // Get day, month, and year from the date object
