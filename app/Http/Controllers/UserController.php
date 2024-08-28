@@ -333,6 +333,99 @@ class UserController extends Controller
         
     }
 
+    // public function personal_edit($id, Request $request){
+    //     // dd($request->all());
+    //     if(Session::get('user')){
+    //         $candidate = Candidates::where('id', $id)->first();
+    //         if($candidate){
+    //         $candidate->name = strtoupper($request->pname);
+    //         $candidate->passport_number = strtoupper($request->pnumber);
+    //         $issueDate = \DateTime::createFromFormat('d/m/Y', $request->pass_issue_date);
+    //         if ($issueDate !== false) {
+    //             $candidate->passport_issue_date = $issueDate->format('Y-m-d');
+    //         } else {
+              
+    //         }
+
+           
+    //         $expireDate = \DateTime::createFromFormat('d/m/Y', $request->pass_expire_date);
+    //         if ($expireDate !== false) {
+    //             $candidate->passport_expire_date = $expireDate->format('Y-m-d');
+    //         } else {
+               
+    //         }
+    //         $birthDate = \DateTime::createFromFormat('d/m/Y', $request->date_of_birth);
+    //             if ($birthDate !== false) {
+    //                 $candidate->date_of_birth = $birthDate->format('Y-m-d');
+    //             } else {
+                   
+    //             }
+    //         // $candidate->date_of_birth = $request->date_of_birth;
+    //         $candidate->place_of_birth = strtoupper($request->place_of_birth);
+    //         $candidate->address = strtoupper($request->address);
+    //         $candidate->father = strtoupper($request->father);
+    //         $candidate->mother = strtoupper($request->mother);
+    //         $candidate->religion = strtoupper($request->religion);
+    //         $candidate->address = strtoupper($request->address);
+    //         $candidate->married = $request->married;
+    //         $candidate->medical_center = strtoupper($request->medical_center_name);
+    //         $issueDate = !empty($request->medical_issue_date) ? \DateTime::createFromFormat('d/m/Y', $request->medical_issue_date) : null;
+
+    //         if ($issueDate !== false && $issueDate !== null) {
+    //             $candidate->medical_issue_date = $issueDate->format('Y-m-d');
+    //         } else {
+    //             // Handle the case when the date format is invalid or empty
+    //             $candidate->medical_issue_date = null; // Assigning null in case of empty or invalid date
+    //         }
+
+    //         $expireDate = !empty($request->medical_expire_date) ? \DateTime::createFromFormat('d/m/Y', $request->medical_expire_date) : null;
+
+    //         if ($expireDate !== false && $expireDate !== null) {
+    //             $candidate->medical_expire_date = $expireDate->format('Y-m-d');
+    //         } else {
+    //             // Handle the case when the date format is invalid or empty
+    //             $candidate->medical_expire_date = null; // Assigning null in case of empty or invalid date
+    //         }
+    //         $candidate->police = strtoupper($request->police_licence);
+    //         $candidate->driving_licence = strtoupper($request->driving_licence);
+    //         $candidate->is_delete = 0;
+    //         $candidate->gender = strtoupper($request->gender);
+    //         // dd($candidate->save());
+    //         if($candidate->save()){
+    //             return response()->json([
+    //                 'title'=> 'Success',
+    //                 'success' => true,
+    //                 'icon' => 'success',
+    //                 'message' => 'Edited succesfully',
+    //                 'redirect_url' => 'user/index'
+    //             ]);
+    //         }
+    //         else{
+    //             return response()->json([
+    //                 'title'=> 'Error',
+    //                 'success' => false,
+    //                 'icon' => 'error',
+    //                 'message' => 'Cannot edit',
+    //                 'redirect_url' => 'user/index'
+                    
+    //             ]);
+    //         }
+    //     }
+    //         else{
+    //             return response()->json([
+    //                 'title'=> 'Error',
+    //                 'success' => false,
+    //                 'icon' => 'error',
+    //                 'message' => 'Candidate does not exist',
+    //                 'redirect_url' => 'user/index'
+    //             ]);
+    //         }
+    //     }
+    //     else{
+    //         return redirect(url('/'));
+    //     }
+        
+    // }
     public function personal_edit($id, Request $request){
         // dd(1, $id, 2, $request->all());
         if(Session::get('user')){
@@ -366,7 +459,6 @@ class UserController extends Controller
             $candidate->father = strtoupper($request->father);
             $candidate->mother = strtoupper($request->mother);
             $candidate->religion = strtoupper($request->religion);
-            $candidate->address = strtoupper($request->address);
             $candidate->married = $request->married;
             $candidate->medical_center = strtoupper($request->medical_center_name);
             $issueDate = !empty($request->medical_issue_date) ? \DateTime::createFromFormat('d/m/Y', $request->medical_issue_date) : null;
@@ -426,7 +518,6 @@ class UserController extends Controller
         }
         
     }
-
     public function visa_edit($id, Request $request){
         if(Session::get('user')){
             $visa = Visa::where('candidate_id', $id)->first();
