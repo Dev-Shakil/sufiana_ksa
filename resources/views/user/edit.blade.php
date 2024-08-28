@@ -44,7 +44,7 @@
                         $inputDate = $candidate->passport_issue_date;
         
                         // Convert the date format
-                        $formattedDate = date('d-m-Y', strtotime($inputDate));
+                        $formattedDate = date('d/m/Y', strtotime($inputDate));
         
                         // Output the formatted date
                         echo $formattedDate;
@@ -56,7 +56,7 @@
                         $inputDate = $candidate->passport_expire_date;
         
                         // Convert the date format
-                        $formattedDate = date('d-m-Y', strtotime($inputDate));
+                        $formattedDate = date('d/m/Y', strtotime($inputDate));
         
                         // Output the formatted date
                         echo $formattedDate;
@@ -68,7 +68,7 @@
                         $inputDate = $candidate->date_of_birth;
         
                         // Convert the date format
-                        $formattedDate = date('d-m-Y', strtotime($inputDate));
+                        $formattedDate = date('d/m/Y', strtotime($inputDate));
         
                         // Output the formatted date
                         echo $formattedDate;
@@ -438,6 +438,8 @@ $('#pnumber').on('change', function () {
                 $('#medical_expire_date').val(formattedDate);
           }
       });
+   
+    
     $('#pass_issue_date').datepicker({
       dateFormat: 'dd/mm/yy',
       onSelect: function(selectedDate) {
@@ -448,7 +450,15 @@ $('#pnumber').on('change', function () {
             $('#pass_expire_date').val(formattedDate);
       }
     });
-
+    $('#pass_expire_date').datepicker({
+      dateFormat: 'dd/mm/yy',
+      onSelect: function(selectedDate) {
+            var expDate = $(this).datepicker('getDate');
+            
+            var formattedDate = $.datepicker.formatDate('dd/mm/yy', expDate);
+            $('#pass_expire_date').val(formattedDate);
+      }
+    });
     $('#date_of_birth').datepicker({
       dateFormat: 'dd/mm/yy',
       onSelect: function(selectedDate) {
